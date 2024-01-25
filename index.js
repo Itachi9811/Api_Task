@@ -4,19 +4,7 @@ const bodyParser = require('body-parser');
 const moment = require('moment');
 // var mysql = require("mysql");
 
-// var hostname = "u1y.h.filess.io";
-// var database = "Scoreboard_privatetie";
-// var port = "3307";
-// var username = "Scoreboard_privatetie";
-// var password = "d93fd5af685a5d9b3a565bb61807a000a2998e8a";
-// const app = express();
-// var con = mysql.createConnection({
-//   host: hostname,
-//   user: username,
-//   password,
-//   database,
-//   port,
-// });
+
 
 var hostname = "sql6.freesqldatabase.com";
 var database = "sql6679479";
@@ -81,7 +69,7 @@ app.get('/lb/cw', ( req,res) => {
 
    app.get('/ur/:userId', (req, res) => {
       const userId = req.params.userId;
-      const query = `SELECT UID, Name, Score, (
+      const query = `SELECT (
         SELECT COUNT(DISTINCT Score) + 1
         FROM leaderboard AS t2
         WHERE t2.Score > t1.Score
